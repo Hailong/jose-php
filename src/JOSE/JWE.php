@@ -70,7 +70,7 @@ class JOSE_JWE extends JOSE_JWT {
         } else {
             $rsa = RSA::load($public_or_private_key);
         }
-        return $rsa->withPadding($padding_mode);
+        return $rsa->withPadding($padding_mode)->withHash('sha1')->withMGFHash('sha1');
     }
 
     private function cipher() {
